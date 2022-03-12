@@ -16,7 +16,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   TextEditingController _mobileEditingController = TextEditingController();
 
   @override
@@ -108,6 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             animationType: AnimationType.fade,
                             cursorColor: ColorRes.PrimaryColor,
+                            keyboardType: TextInputType.number,
                             pinTheme: PinTheme(
                               shape: PinCodeFieldShape.box,
                               borderRadius: BorderRadius.circular(5),
@@ -152,10 +152,11 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           onPressed: () {
                             ///We can use textFormField and validator as per requirement
-                            bool isValid = AppUtils.validateMobileNumber(_mobileEditingController.text);
-                             if(isValid) {
-                               AppUtils.showToast("Open next screen");
-                             }
+                            bool isValid = AppUtils.validateMobileNumber(
+                                _mobileEditingController.text);
+                            if (isValid) {
+                              AppUtils.showToast("Open next screen");
+                            }
                           },
                         )),
                   ],
@@ -165,5 +166,4 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ));
   }
-
 }
